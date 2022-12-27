@@ -3,7 +3,7 @@
 </head>
 <body>
     <button onclick="getData()">Get Data</button>&nbsp;
-    <button onclick="copy()">Copy Data</button>&nbsp;<label></lablel>
+    <button onclick="copy()">Copy Data</button>&nbsp;<span>Paste the public shared links of QR code, from Google Drive, Onedrive, Dropbox, hosting, website..., then press Get Data. </span>
     <br><br>
     <textarea id="links" rows="200" cols="200">https://img.vietqr.io/image/VPB-114822795-compact2.png?amount=10000&&addInfo=Buy%20Me%20A%20Coffee</textarea>
     <script>
@@ -11,7 +11,7 @@
             var links = document.getElementById("links").value.split("\n");
             document.getElementById("links").value = document.getElementById("links").value.replace("URL","QR");
             for (let i = 0; i < links.length; i++) {
-                document.querySelector("label").innerText = "Please wait for 30 seconds. Thank you.";
+                document.querySelector("span").innerText = "Please wait for 30 seconds. Thank you.";
                 let link = links[i];
                 if (link.indexOf("http") >= 0) {
                     link = "https://api.qrserver.com/v1/read-qr-code/?fileurl=" + encodeURIComponent(link);
@@ -49,7 +49,7 @@
   navigator.clipboard.writeText(copyText.value);
 
   // Alert the copied text
-  document.querySelector("label").innerText = "Copied. Thank you.";
+  document.querySelector("span").innerText = "Copied. Thank you.";
 }
     </script>
 </body>
