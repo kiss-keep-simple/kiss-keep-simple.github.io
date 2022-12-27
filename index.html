@@ -2,7 +2,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <button onclick="getData()">Get Data</button><br>
+    <button onclick="getData()">Get Data</button>&nbsp;
+    <button onclick="copy()">Copy Data</button>
+    <br><br>
     <textarea id="links" rows="200" cols="200"></textarea>
     <script>
         async function getData() {
@@ -34,5 +36,19 @@
                 })
 
         }
+  function copy() {
+  // Get the text field
+  var copyText = document.getElementById("links");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied: " + copyText.value);
+}
     </script>
 </body>
